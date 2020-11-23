@@ -8,12 +8,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
+import com.bumptech.glide.util.Util
 import com.google.gson.JsonObject
 import com.publicissapient.publicissapienttest.R
 import com.publicissapient.publicissapienttest.databinding.FragmentBasketBinding
 import com.publicissapient.publicissapienttest.models.datamodel.Offers
 import com.publicissapient.publicissapienttest.netwroks.Resource
 import com.publicissapient.publicissapienttest.netwroks.Status
+import com.publicissapient.publicissapienttest.utils.Utils
 import com.publicissapient.publicissapienttest.viewmodels.BasketViewModel
 import org.json.JSONObject
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -27,6 +29,10 @@ val viewFragment = module {
 class BasketFragment : Fragment() {
     private val basketViewModel: BasketViewModel by viewModel()
     private lateinit var binding: FragmentBasketBinding
+
+    val books by lazy {
+        BasketFragmentArgs.fromBundle(requireArguments()).books
+    }
 
     private val observer = Observer<Resource<Offers>> {
         when (it.status) {
@@ -53,6 +59,7 @@ class BasketFragment : Fragment() {
 
     private fun updateView(offers: Offers){
         Log.d("Mydta", "data"+offers.offers.get(0).type)
+        //Utils.applyOffer()
     }
 
     private fun showLoading() {

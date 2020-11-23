@@ -78,7 +78,7 @@ class ListBooksFragment : Fragment() {
     }
 
     private fun navigateAbout(item: MenuItem) {
-        val action = ListBooksFragmentDirections.actionListBooksFragmentToBasketFragment()
+        val action = ListBooksFragmentDirections.actionListBooksFragmentToBasketFragment(books = Books(booksList))
         findNavController().navigate(action)
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
