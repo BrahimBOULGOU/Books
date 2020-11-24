@@ -96,6 +96,11 @@ class ListBooksFragment : Fragment() {
     }
 
     private fun updateList(books : Books ){
+        // For Test
+        books.books.get(0).isSold = true
+        books.books.get(1).isSold = true
+        books.books.get(2).isSold = true
+
         booksList.addAll(books.books)
         adapter.notifyItemInserted(booksList.size-1)
     }

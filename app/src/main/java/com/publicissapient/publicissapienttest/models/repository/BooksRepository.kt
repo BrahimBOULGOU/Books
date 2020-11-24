@@ -1,6 +1,6 @@
 package com.publicissapient.publicissapienttest.models.repository
 
-import com.google.gson.Gson
+
 import com.publicissapient.publicissapienttest.models.datamodel.Books
 import com.publicissapient.publicissapienttest.netwroks.BooksApis
 import com.publicissapient.publicissapienttest.netwroks.Resource
