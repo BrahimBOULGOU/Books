@@ -33,6 +33,6 @@
         tools:layout="@layout/fragment_details" >
         <argument
             android:name="book"
-            app:argType="string" />
+            app:argType="com.publicissapient.publicissapienttest.models.datamodel.Book" />
     </fragment>
 </navigation>

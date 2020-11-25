@@ -4,14 +4,12 @@ import android.os.Bundle
 import android.util.Log
 import android.view.*
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.publicissapient.publicissapienttest.R
 import com.publicissapient.publicissapienttest.adapters.ListBookAdapter
 import com.publicissapient.publicissapienttest.databinding.FragmentListBooksBinding
@@ -20,11 +18,9 @@ import com.publicissapient.publicissapienttest.models.datamodel.Books
 import com.publicissapient.publicissapienttest.netwroks.Resource
 import com.publicissapient.publicissapienttest.netwroks.Status
 import com.publicissapient.publicissapienttest.viewmodels.ListBooksViewModel
-import kotlinx.android.synthetic.main.fragment_list_books.*
-import kotlinx.android.synthetic.main.fragment_list_books.view.*
+import kotlinx.android.synthetic.main.custom_menu.view.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import org.koin.dsl.module
-import java.util.ArrayList
+import java.util.*
 
 
 class ListBooksFragment : Fragment() {
@@ -68,16 +64,19 @@ class ListBooksFragment : Fragment() {
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.backet_menu, menu)
+
+        val item: MenuItem = menu.findItem(R.id.action_favorite)
+        item.actionView.imageView3.setOnClickListener {
+            navigateAbout()
+        }
+        item.actionView.textView11.text = "3"
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.action_favorite -> navigateAbout(item)
-        }
         return super.onOptionsItemSelected(item)
     }
 
-    private fun navigateAbout(item: MenuItem) {
+    private fun navigateAbout() {
         val action = ListBooksFragmentDirections.actionListBooksFragmentToBasketFragment(books = Books(booksList))
         findNavController().navigate(action)
     }
@@ -85,7 +84,7 @@ class ListBooksFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         adapter.listener = object : ListBookAdapter.ItemClickListener {
             override fun onItemClickListener(item: Book) {
-                val action = ListBooksFragmentDirections.actionListBooksFragmentToDetailsFragment(book = item.image)
+                val action = ListBooksFragmentDirections.actionListBooksFragmentToDetailsFragment(book = item)
                 findNavController().navigate(action)
             }
         }
@@ -93,9 +92,11 @@ class ListBooksFragment : Fragment() {
     }
     private fun showError(message: String) {
         Log.d("Mydta", "error"+message)
+        binding.spinKit.visibility = View.GONE
     }
 
     private fun updateList(books : Books ){
+        binding.spinKit.visibility = View.GONE
         // For Test
         books.books.get(0).isSold = true
         books.books.get(1).isSold = true
@@ -107,5 +108,6 @@ class ListBooksFragment : Fragment() {
 
     private fun showLoading() {
         Log.d("Mydta", "loading")
+        binding.spinKit.visibility = View.VISIBLE
     }
 }

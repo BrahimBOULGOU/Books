@@ -61,6 +61,7 @@ class BasketFragment : Fragment() {
         super.onCreateView(inflater, container, savedInstanceState)
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_basket, container, false)
         val soldBooksList: List<Book> = books.books.filter { s -> s.isSold }
+        booksList.clear()
         booksList.addAll(soldBooksList)
         basketViewModel.offer.observe(viewLifecycleOwner, observer)
         linearLayoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
@@ -70,7 +71,7 @@ class BasketFragment : Fragment() {
         adapter = ListBookAdapter(booksList)
         binding.soldBooksRecyclerView.adapter = adapter
 
-        basketViewModel.getoffers("c8fabf68-8374-48fe-a7ea-a00ccd07afff,a460afed-e5e7-4e39-a39d-c885c05db861")
+        basketViewModel.getOffers("c8fabf68-8374-48fe-a7ea-a00ccd07afff,a460afed-e5e7-4e39-a39d-c885c05db861")
 
         return binding.root
     }

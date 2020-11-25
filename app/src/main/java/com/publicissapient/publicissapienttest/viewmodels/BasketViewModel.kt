@@ -14,7 +14,7 @@ class BasketViewModel (private val offerRepo: OfferRepository): ViewModel() {
 
     private val ISBNs = MutableLiveData<String>()
 
-    fun getoffers(input: String) {
+    fun getOffers(input: String) {
         ISBNs.value = input
     }
 
