@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/basketFragment"
-        android:name="com.publicissapient.publicissapienttest.ui.BasketFragment"
+        android:name="com.publicissapient.publicissapienttest.ui.fragments.BasketFragment"
         android:label="fragment_basket"
         tools:layout="@layout/fragment_basket" >
         <argument
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/listBooksFragment"
-        android:name="com.publicissapient.publicissapienttest.ui.ListBooksFragment"
+        android:name="com.publicissapient.publicissapienttest.ui.fragments.ListBooksFragment"
         android:label="fragment_list_books"
         tools:layout="@layout/fragment_list_books" >
         <action
@@ -24,11 +24,12 @@
             app:destination="@id/basketFragment" />
         <action
             android:id="@+id/action_listBooksFragment_to_detailsFragment"
-            app:destination="@id/detailsFragment" />
+            app:destination="@id/detailsFragment"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/detailsFragment"
-        android:name="com.publicissapient.publicissapienttest.ui.DetailsFragment"
+        android:name="com.publicissapient.publicissapienttest.ui.fragments.DetailsFragment"
         android:label="fragment_details"
         tools:layout="@layout/fragment_details" >
         <argument

@@ -5,16 +5,10 @@ import com.publicissapient.publicissapienttest.models.datamodel.Books
 import com.publicissapient.publicissapienttest.netwroks.BooksApis
 import com.publicissapient.publicissapienttest.netwroks.Resource
 import com.publicissapient.publicissapienttest.netwroks.ResponseHandler
-import org.koin.dsl.module
 
-
-val BooksModule = module {
-    factory { BooksRepository(get(), get()) }
-    factory { OfferRepository(get(), get()) }
-}
-
-class BooksRepository (private val booksApis: BooksApis,
-                       private val responseHandler: ResponseHandler
+class BooksRepository(
+    private val booksApis: BooksApis,
+    private val responseHandler: ResponseHandler
 ) {
 
     suspend fun getBooks(): Resource<Books> {

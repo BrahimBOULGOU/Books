@@ -6,8 +6,10 @@ import kotlinx.android.parcel.Parcelize
 import java.util.ArrayList
 
 @Parcelize
-data class Book(@SerializedName("isbn") val id :String,
-                @SerializedName("title") val title : String,
-                @SerializedName("price") val price : Float,
-                @SerializedName("cover") val image : String,
-                @SerializedName("synopsis") val description: ArrayList<String>, var isSold: Boolean = true) : Parcelable
+data class Book(
+    @SerializedName("isbn") val id: String,
+    @SerializedName("title") val title: String,
+    @SerializedName("price") val price: Float,
+    @SerializedName("cover") val image: String,
+    @SerializedName("synopsis") val description: ArrayList<String>, var isSold: Boolean = false
+) : Parcelable

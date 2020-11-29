@@ -7,8 +7,9 @@ import com.publicissapient.publicissapienttest.netwroks.BooksApis
 import com.publicissapient.publicissapienttest.netwroks.Resource
 import com.publicissapient.publicissapienttest.netwroks.ResponseHandler
 
-class OfferRepository (private val booksApis: BooksApis,
-                       private val responseHandler: ResponseHandler
+class OfferRepository(
+    private val booksApis: BooksApis,
+    private val responseHandler: ResponseHandler
 ) {
 
     suspend fun getOffers(ISBNs: String): Resource<Offers> {

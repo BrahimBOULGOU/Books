@@ -11,5 +11,5 @@ interface BooksApis {
     suspend fun getBooks(): List<Book>
 
     @GET("books/{ISBN}/commercialOffers")
-    suspend fun getOffers(@Path("ISBN")ISBN: String): Offers
+    suspend fun getOffers(@Path("ISBN") ISBN: String): Offers
 }

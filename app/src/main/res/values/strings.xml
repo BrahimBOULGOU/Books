@@ -11,4 +11,10 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="total_produits">Total Produits</string>
+    <string name="offre">Offre</string>
+    <string name="total">Total</string>
+    <string name="valider_le_panier">Valider le panier</string>
+    <string name="add_to_basket">Ajouter au panier</string>
+    <string name="book_image_desc">Book image desc</string>
 </resources>

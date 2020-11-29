@@ -2,7 +2,6 @@ package com.publicissapient.publicissapienttest.netwroks
 
 import retrofit2.HttpException
 import java.lang.Exception
-import java.net.SocketTimeoutException
 
 open class ResponseHandler {
     fun <T : Any> handleSuccess(data: T): Resource<T> {
@@ -18,7 +17,7 @@ open class ResponseHandler {
 
     private fun getErrorMessage(code: Int): String {
         return when (code) {
-            404 -> "Not found"
+            404 -> "Not Found"
             else -> "Something went wrong"
         }
     }

@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity">
 
-  <item
-      android:id="@+id/action_favorite"
-      android:orderInCategory="100"
-      android:title=""
-      app:actionLayout="@layout/custom_menu"
-      app:showAsAction="always" />
+    <item
+        android:id="@+id/action_close"
+        android:orderInCategory="100"
+        android:title=""
+        app:actionLayout="@layout/details_custom_menu"
+        app:showAsAction="always" />
 
 </menu>
